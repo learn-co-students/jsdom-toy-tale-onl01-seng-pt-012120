@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Toy Tale</title>
-    <script type="text/javascript" src="src/index.js"></script>
+
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -15,12 +15,13 @@
     </div>
 
     <div class="container">
-      <form class="add-toy-form">
+      <form class="add-toy-form" id="createToyForm">
         <h3>Create a toy!</h3>
 
         <input
           type="text"
           name="name"
+          id="name"
           value=""
           placeholder="Enter a toy's name..."
           class="input-text"
@@ -29,6 +30,7 @@
         <input
           type="text"
           name="image"
+          id="image"
           value=""
           placeholder="Enter a toy's image URL..."
           class="input-text"
@@ -47,5 +49,6 @@
     </p>
 
     <div id="toy-collection"></div>
+    <script type="text/javascript" src="src/index.js"></script>
   </body>
 </html>
