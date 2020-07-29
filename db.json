@@ -4,13 +4,13 @@
       "id": 1,
       "name": "Woody",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Woody-PNG-Photos.png",
-      "likes": 5
+      "likes": 7
     },
     {
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 8
+      "likes": 10
     },
     {
       "id": 3,
@@ -46,7 +46,31 @@
       "id": 8,
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": -2
+      "likes": 1
+    },
+    {
+      "name": "Ada Lovelace II",
+      "image": "https://farm9.staticflickr.com/8422/7842069486_c61e4c6025.jpg",
+      "likes": 0,
+      "id": 9
+    },
+    {
+      "name": "Dan Foley",
+      "image": "https://farm8.staticflickr.com/7381/9705573948_3f342901d1.jpg",
+      "likes": 1,
+      "id": 10
+    },
+    {
+      "name": "Dude",
+      "image": "",
+      "likes": 1,
+      "id": 11
+    },
+    {
+      "name": "root toot",
+      "image": "",
+      "likes": 1,
+      "id": 12
     }
   ]
 }
