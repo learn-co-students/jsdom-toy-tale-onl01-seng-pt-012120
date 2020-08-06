@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     p.innerText = `${likeCount} likes`;
     let whatToUpdate = {likes: likeCount}
     let configObj = {
-      method: 'PATCH',
+      method: 'patch',
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"

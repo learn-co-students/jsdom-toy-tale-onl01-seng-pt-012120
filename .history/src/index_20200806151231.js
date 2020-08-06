@@ -59,16 +59,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let likeCount = parseInt(p.innerText[0]);
     likeCount += 1;
     p.innerText = `${likeCount} likes`;
-    let whatToUpdate = {likes: likeCount}
+    let whatToUpdate = {likes: `${likeCount}`}
     let configObj = {
-      method: 'PATCH',
+      method: 'patch',
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
       body: JSON.stringify(whatToUpdate)
     };
-    fetch(`http://localhost:3000/toys/${thisCard.id}`, configObj);
+    fetch(`http://localhost:3000/toys/${parseInt(thisCard.id)}`, configObj);
+    debugger;
   })
 
   fetch('http://localhost:3000/toys').then(resp => resp.json()).then(json => addCurrentToys(json));

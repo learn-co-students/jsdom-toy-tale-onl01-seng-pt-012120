@@ -61,14 +61,14 @@ document.addEventListener("DOMContentLoaded", () => {
     p.innerText = `${likeCount} likes`;
     let whatToUpdate = {likes: likeCount}
     let configObj = {
-      method: 'PATCH',
+      method: 'patch',
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
       body: JSON.stringify(whatToUpdate)
     };
-    fetch(`http://localhost:3000/toys/${thisCard.id}`, configObj);
+    fetch(`http://localhost:300/toys/${thisCard.id}`, configObj);
   })
 
   fetch('http://localhost:3000/toys').then(resp => resp.json()).then(json => addCurrentToys(json));

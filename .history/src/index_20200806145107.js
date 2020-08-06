@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //actions taken on the parts
       div.className = 'card';
-      div.id = toy.id;
       toyName.textContent = toy.name;
       img.src = toy.image;
       img.className = 'toy-avatar';
@@ -58,17 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let p = thisCard.getElementsByTagName('p')[0];
     let likeCount = parseInt(p.innerText[0]);
     likeCount += 1;
-    p.innerText = `${likeCount} likes`;
-    let whatToUpdate = {likes: likeCount}
-    let configObj = {
-      method: 'PATCH',
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(whatToUpdate)
-    };
-    fetch(`http://localhost:3000/toys/${thisCard.id}`, configObj);
+    p.innerText[0] = likeCount;
+    // debugger;
   })
 
   fetch('http://localhost:3000/toys').then(resp => resp.json()).then(json => addCurrentToys(json));
