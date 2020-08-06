@@ -1,5 +1,4 @@
 let addToy = false;
-let likeCount = {}
 
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
@@ -66,19 +65,38 @@ function showToy(toy) {
   card.appendChild(p)
   card.appendChild(btn)
   collection.appendChild(card)
-  btn.addEventListener('click', function(event){
-    event.target.id = 'like-btn'
-    console.log('liked')
-  });
+  btn.addEventListener('click', (event) => {
+    console.log(event.target.dataset);
+    likes(event)
+  })
 };
 
-  fetch('http://localhost:3000/toys')
-    .then(response => response.json())
-    .then(toys => toys.forEach(toy => showToy(toy)));
+fetch('http://localhost:3000/toys')
+  .then(response => response.json())
+  .then(toys => toys.forEach(toy => showToy(toy)));
 
-   
-
+  function likes(e) {
+    e.preventDefault()
+    let more = parseInt(e.target.previousElementSibling.innerText) + 1
   
+    fetch(`http://localhost:3000/toys/${e.target.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+  
+        },
+        body: JSON.stringify({
+          "likes": more
+        })
+      })
+      .then(res => res.json())
+      .then((like_obj => {
+        e.target.previousElementSibling.innerText = `${more} likes`;
+      }))
+  }
+
+
   
   
   
