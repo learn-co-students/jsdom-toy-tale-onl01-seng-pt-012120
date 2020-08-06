@@ -68,7 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       body: JSON.stringify(whatToUpdate)
     };
-    fetch(`http://localhost:3000/toys/${thisCard.id}`, configObj);
+    debugger;
+    fetch(`http://localhost:300/toys/${thisCard.id}`, configObj);
   })
 
   fetch('http://localhost:3000/toys').then(resp => resp.json()).then(json => addCurrentToys(json));

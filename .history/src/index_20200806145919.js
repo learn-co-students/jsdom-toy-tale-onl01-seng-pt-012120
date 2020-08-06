@@ -58,17 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let p = thisCard.getElementsByTagName('p')[0];
     let likeCount = parseInt(p.innerText[0]);
     likeCount += 1;
+    fetch(`http://localhost:300/toys`)
     p.innerText = `${likeCount} likes`;
-    let whatToUpdate = {likes: likeCount}
-    let configObj = {
-      method: 'patch',
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(whatToUpdate)
-    };
-    fetch(`http://localhost:3000/toys/${thisCard.id}`, configObj);
   })
 
   fetch('http://localhost:3000/toys').then(resp => resp.json()).then(json => addCurrentToys(json));

@@ -30,12 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       //actions taken on the parts
       div.className = 'card';
-      div.id = toy.id;
       toyName.textContent = toy.name;
       img.src = toy.image;
       img.className = 'toy-avatar';
       p.innerText = toy.likes + " likes";
-      button.className = "like-btn";
+      button.className = "like - btn";
       button.innerText = "Like <3";
 
       //add everything to the card
@@ -48,31 +47,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   };
 
-  const toyCollection = document.getElementById("toy-collection");
-  toyCollection.addEventListener('click', (e)=>{
-    const isButton = e.target.nodeName === 'BUTTON'
-    if(!isButton){
-      return;
-    };
-    let thisCard = e.target.parentElement;
-    let p = thisCard.getElementsByTagName('p')[0];
-    let likeCount = parseInt(p.innerText[0]);
-    likeCount += 1;
-    p.innerText = `${likeCount} likes`;
-    let whatToUpdate = {likes: likeCount}
-    let configObj = {
-      method: 'patch',
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify(whatToUpdate)
-    };
-    fetch(`http://localhost:3000/toys/${thisCard.id}`, configObj);
-  })
 
-  fetch('http://localhost:3000/toys').then(resp => resp.json()).then(json => addCurrentToys(json));
-
+  fetch('http://localhost:3000/toys')
+  .then(resp => resp.json())
+  .then(json => addCurrentToys(json));
 });
 
 let addNewToy = (toyName, toyImage, likes = 0) => {
@@ -86,8 +64,5 @@ let addNewToy = (toyName, toyImage, likes = 0) => {
     body: JSON.stringify(formData)
   };
   fetch('http://localhost:3000/toys',configObj)
-};
-
-let likeToy = () =>{
 
 };

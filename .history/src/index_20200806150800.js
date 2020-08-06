@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let likeCount = parseInt(p.innerText[0]);
     likeCount += 1;
     p.innerText = `${likeCount} likes`;
-    let whatToUpdate = {likes: likeCount}
+    let whatToUpdate = {likes: `${likeCount}`}
     let configObj = {
       method: 'patch',
       headers: {
