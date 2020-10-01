@@ -21,6 +21,22 @@ const fetchToys = () => {
   .then(json => createCard(json))
 }
 
+const patchToyLikes = (id, likes) => {
+  return fetch(`http://localhost:3000/toys/${id}`, {
+    method: 'PATCH',
+    body: JSON.stringify({
+      "likes": likes 
+    }),
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json"
+    }})
+    
+  .then(resp => resp.json()) 
+  .then(json => console.log(json))  
+  // .then(json => createCard(json))
+}
+
 // h2 tag with the toy's name
 function createName(toy, card) {
   let name = document.createElement('h2')
@@ -43,12 +59,16 @@ function totalLikes(toy, card) {
   card.appendChild(likes)
 }
 
+const increaseCount = (toy) => {
+  const increaseLike = toy.likes + 1 
+  patchToyLikes(toy.id, increaseLike)
+} 
+
 // button with class="like-btn"
 function addButton(toy, card) {
   let newButton = document.createElement('button')
   newButton.addEventListener('click', function() {
     increaseCount(toy);
-    window.location.reload(true);
   })
   newButton.className = "like-btn"
   newButton.style = "width: 30px;height:30px;cursor:pointer;"
