@@ -25,8 +25,7 @@ function postToy(toy_data) {
     })
     .then(res => res.json())
     .then((obj_toy) => {
-      let new_toy = renderToys(obj_toy)
-      divCollect.append(new_toy)
+      renderToys(obj_toy)
     })
 }
 
